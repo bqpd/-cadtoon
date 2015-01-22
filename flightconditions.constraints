@@ -1,0 +1,10 @@
+var wty = r. wingtaper.scaley
+console.log(wty);
+
+r.wingtaper.y = 5*wty
+
+r.wingrect.scaley = 1 - wty
+r.wingrect.y = -6 + 5*wty
+
+r.engine1.y = 10*wty
+r.engine2.y = 10*wty

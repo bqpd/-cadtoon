@@ -1,0 +1,231 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title> quadrotor | Ractive test</title>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+  <style>
+    body {
+        font-family: "Roboto";
+        background: white;
+    }
+
+    td {
+        padding: 1em;
+        text-align: right;
+    }
+
+    .left {
+        position: fixed;
+        left: 40px;
+        width: 480px;
+        margin: 0 auto;
+    }
+
+    .right {
+        position: absolute;
+        left: 560px;
+        top: 60px;
+    }
+
+    h1 {
+        font-size: 3em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .note {
+        margin-top: -1.5em;
+    }
+
+    #constraints {
+        width: 100%;
+        height: 10em;
+        font-family: monospace;
+    }
+  </style>
+</head>
+
+<body>
+  <div id='ractivecontainer'></div>
+<script id='ractivetemplate' type='text/ractive'>
+  <div class="left">
+  <h1>  quadrotor </h1><br><br><br>
+<svg width="400" height="400" version="1.1">
+	<g transform="scale(2.00)">
+		<g transform="translate(-158.2896,-548.99271)">
+			<g class="strut" transform="matrix({{strut.scalex * strut.scale}}, 0, 0, {{strut.scaley * strut.scale}}, {{strut.x + 258.794465 * (1-strut.scalex * strut.scale)}}, {{strut.y + 648.927225 * (1-strut.scaley * strut.scale)}})">
+				<path d="m 259.93935,560.6209 -2.90861,-1.12699 -1.61574,4.94796 0,168.53073 2.65018,5.38794 2.65019,-5.38792 0.007,-168.54534 -0.78334,-3.80638 z" style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:16;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"></path>
+				<path d="m 347.10079,650.23149 1.12699,-2.90861 -4.94796,-1.61574 -168.53073,0 -5.38794,2.65018 5.38792,2.65019 168.54534,0.007 3.80638,-0.78334 z" style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:16;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"></path>
+			</g>
+			<g transform="matrix(1.4230511,1.423051,-1.423051,1.4230511,347.25912,-777.02539)">
+				<g style="fill:#000000;fill-opacity:1;stroke:none" class="top" transform="matrix({{top.scalex * top.scale}}, 0, 0, {{top.scaley * top.scale}}, {{top.x + 625.022664 * (1-top.scalex * top.scale)}}, {{top.y + 580.10372 * (1-top.scaley * top.scale)}})">
+					<g transform="matrix(-0.18920123,0,0,0.18920123,475.0222,418.58204)">
+						<g style="fill:#000000;fill-opacity:1;stroke:none" class="rotor" transform="matrix({{rotor.scalex * rotor.scale}}, 0, 0, {{rotor.scaley * rotor.scale}}, {{rotor.x + 194.392439 * (1-rotor.scalex * rotor.scale)}}, {{rotor.y + 434.358335 * (1-rotor.scaley * rotor.scale)}})">
+							<path style="fill:#000000;fill-opacity:1;stroke:none" d="m 297.33145,517.12517 c 0,0 -44.29118,14.11887 -104.98813,-85.41408 -22.85104,-17.74837 27.58638,21.95858 104.98813,85.41408 z"></path>
+							<path style="fill:#000000;fill-opacity:1;stroke:none" d="m 91.453428,351.5915 c 0,0 44.291182,-14.11887 104.988132,85.41408     z"></path>
+						</g>
+					</g>
+					<g transform="matrix(-0.13377939,0,0,0.13377939,518.59193,459.1109)">
+						<path transform="matrix({{motor.scalex * motor.scale}}, 0, 0, {{motor.scaley * motor.scale}}, {{motor.x + 602.857115 * (1-motor.scalex * motor.scale)}}, {{motor.y + 312.362185 * (1-motor.scaley * motor.scale)}})" d="m 639.99997,312.36218 c 0,20.51344 -16.62942,37.14286 -37.14285,37.14286 -20.51344,0 -37.14286,-16.62942 -37.14286,-37.14286 0,-20.51343 16.62942,-37.14285 37.14286,-37.14285 20.51343,0 37.14285,16.62942 37.14285,37.14285 z" style="fill:#000000;fill-opacity:1;stroke:none" class="motor"></path>
+					</g>
+				</g>
+			</g>
+			<g transform="matrix(1.423051,-1.4230511,1.4230511,1.423051,-1167.7285,560.10542)">
+				<g style="fill:#000000;fill-opacity:1;stroke:none" class="left" transform="matrix({{left.scalex * left.scale}}, 0, 0, {{left.scaley * left.scale}}, {{left.x + 625.022664 * (1-left.scalex * left.scale)}}, {{left.y + 580.10372 * (1-left.scaley * left.scale)}})">
+					<g transform="matrix(-0.18920123,0,0,0.18920123,475.0222,418.58204)">
+						<g style="fill:#000000;fill-opacity:1;stroke:none" class="rotor" transform="matrix({{rotor.scalex * rotor.scale}}, 0, 0, {{rotor.scaley * rotor.scale}}, {{rotor.x + 194.392439 * (1-rotor.scalex * rotor.scale)}}, {{rotor.y + 434.358335 * (1-rotor.scaley * rotor.scale)}})">
+							<path style="fill:#000000;fill-opacity:1;stroke:none" d="m 297.33145,517.12517 c 0,0 -44.29118,14.11887 -104.98813,-85.41408 -22.85104,-17.74837 27.58638,21.95858 104.98813,85.41408 z"></path>
+							<path style="fill:#000000;fill-opacity:1;stroke:none" d="m 91.453428,351.5915 c 0,0 44.291182,-14.11887 104.988132,85.41408     z"></path>
+						</g>
+					</g>
+					<g transform="matrix(-0.13377939,0,0,0.13377939,518.59193,459.1109)">
+						<path transform="matrix({{motor.scalex * motor.scale}}, 0, 0, {{motor.scaley * motor.scale}}, {{motor.x + 602.857115 * (1-motor.scalex * motor.scale)}}, {{motor.y + 312.362185 * (1-motor.scaley * motor.scale)}})" d="m 639.99997,312.36218 c 0,20.51344 -16.62942,37.14286 -37.14285,37.14286 -20.51344,0 -37.14286,-16.62942 -37.14286,-37.14286 0,-20.51343 16.62942,-37.14285 37.14286,-37.14285 20.51343,0 37.14285,16.62942 37.14285,37.14285 z" style="fill:#000000;fill-opacity:1;stroke:none" class="motor"></path>
+					</g>
+				</g>
+			</g>
+			<g transform="matrix(-1.423051,1.4230511,-1.4230511,-1.423051,1684.3899,738.04437)">
+				<g style="fill:#000000;fill-opacity:1;stroke:none" class="right" transform="matrix({{right.scalex * right.scale}}, 0, 0, {{right.scaley * right.scale}}, {{right.x + 625.022664 * (1-right.scalex * right.scale)}}, {{right.y + 580.10372 * (1-right.scaley * right.scale)}})">
+					<g transform="matrix(-0.18920123,0,0,0.18920123,475.0222,418.58204)">
+						<g style="fill:#000000;fill-opacity:1;stroke:none" class="rotor" transform="matrix({{rotor.scalex * rotor.scale}}, 0, 0, {{rotor.scaley * rotor.scale}}, {{rotor.x + 194.392439 * (1-rotor.scalex * rotor.scale)}}, {{rotor.y + 434.358335 * (1-rotor.scaley * rotor.scale)}})">
+							<path style="fill:#000000;fill-opacity:1;stroke:none" d="m 297.33145,517.12517 c 0,0 -44.29118,14.11887 -104.98813,-85.41408 -22.85104,-17.74837 27.58638,21.95858 104.98813,85.41408 z"></path>
+							<path style="fill:#000000;fill-opacity:1;stroke:none" d="m 91.453428,351.5915 c 0,0 44.291182,-14.11887 104.988132,85.41408     z"></path>
+						</g>
+					</g>
+					<g transform="matrix(-0.13377939,0,0,0.13377939,518.59193,459.1109)">
+						<path transform="matrix({{motor.scalex * motor.scale}}, 0, 0, {{motor.scaley * motor.scale}}, {{motor.x + 602.857115 * (1-motor.scalex * motor.scale)}}, {{motor.y + 312.362185 * (1-motor.scaley * motor.scale)}})" d="m 639.99997,312.36218 c 0,20.51344 -16.62942,37.14286 -37.14285,37.14286 -20.51344,0 -37.14286,-16.62942 -37.14286,-37.14286 0,-20.51343 16.62942,-37.14285 37.14286,-37.14285 20.51343,0 37.14285,16.62942 37.14285,37.14285 z" style="fill:#000000;fill-opacity:1;stroke:none" class="motor"></path>
+					</g>
+				</g>
+			</g>
+			<g transform="matrix(-1.4230511,-1.423051,1.423051,-1.4230511,169.32017,2075.093)">
+				<g style="fill:#000000;fill-opacity:1;stroke:none" class="bottom" transform="matrix({{bottom.scalex * bottom.scale}}, 0, 0, {{bottom.scaley * bottom.scale}}, {{bottom.x + 625.022664 * (1-bottom.scalex * bottom.scale)}}, {{bottom.y + 580.10372 * (1-bottom.scaley * bottom.scale)}})">
+					<g transform="matrix(-0.18920123,0,0,0.18920123,475.0222,418.58204)">
+						<g style="fill:#000000;fill-opacity:1;stroke:none" class="rotor" transform="matrix({{rotor.scalex * rotor.scale}}, 0, 0, {{rotor.scaley * rotor.scale}}, {{rotor.x + 194.392439 * (1-rotor.scalex * rotor.scale)}}, {{rotor.y + 434.358335 * (1-rotor.scaley * rotor.scale)}})">
+							<path style="fill:#000000;fill-opacity:1;stroke:none" d="m 297.33145,517.12517 c 0,0 -44.29118,14.11887 -104.98813,-85.41408 -22.85104,-17.74837 27.58638,21.95858 104.98813,85.41408 z"></path>
+							<path style="fill:#000000;fill-opacity:1;stroke:none" d="m 91.453428,351.5915 c 0,0 44.291182,-14.11887 104.988132,85.41408     z"></path>
+						</g>
+					</g>
+					<g transform="matrix(-0.13377939,0,0,0.13377939,518.59193,459.1109)">
+						<path transform="matrix({{motor.scalex * motor.scale}}, 0, 0, {{motor.scaley * motor.scale}}, {{motor.x + 602.857115 * (1-motor.scalex * motor.scale)}}, {{motor.y + 312.362185 * (1-motor.scaley * motor.scale)}})" d="m 639.99997,312.36218 c 0,20.51344 -16.62942,37.14286 -37.14285,37.14286 -20.51344,0 -37.14286,-16.62942 -37.14286,-37.14286 0,-20.51343 16.62942,-37.14285 37.14286,-37.14285 20.51343,0 37.14285,16.62942 37.14285,37.14285 z" style="fill:#000000;fill-opacity:1;stroke:none" class="motor"></path>
+					</g>
+				</g>
+			</g>
+			<g transform="translate(258.28964,414.45249)">
+				<path style="fill:#000000;stroke:none" d="m 29.999999,235.33669 c 0,16.96303 -13.751254,30.71428 -30.71428473,30.71428 -16.96303127,0 -30.71428527,-13.75125 -30.71428527,-30.71428 0,-16.96304 13.751254,-30.71429 30.71428527,-30.71429 16.96303073,0 30.71428473,13.75125 30.71428473,30.71429 z" transform="matrix({{payload.scalex * payload.scale}}, 0, 0, {{payload.scaley * payload.scale}}, {{payload.x + -0.714286 * (1-payload.scalex * payload.scale)}}, {{payload.y + 235.336685 * (1-payload.scaley * payload.scale)}})" class="payload"></path>
+			</g>
+		</g>
+	</g>
+</svg>
+</div><div class="right">
+<table id="controls" style="margin: 0 auto;">
+
+    <tr><td>
+        <h2> bottom </h2></td><td>
+        scale <input value='{{bottom.scale}}' type="range" min="0" max="2" step="0.1"><br>
+        scaleX <input value='{{bottom.scalex}}' type="range" min="0" max="2" step="0.1"><br>
+        scaleY <input value='{{bottom.scaley}}' type="range" min="0" max="2" step="0.1"><br>
+        X <input value='{{bottom.x}}' type="range" min="-150" max="150" step="10"><br>
+        Y <input value='{{bottom.y}}' type="range" min="-150" max="150" step="10"><br>
+    </td></tr>
+
+    <tr><td>
+        <h2> left </h2></td><td>
+        scale <input value='{{left.scale}}' type="range" min="0" max="2" step="0.1"><br>
+        scaleX <input value='{{left.scalex}}' type="range" min="0" max="2" step="0.1"><br>
+        scaleY <input value='{{left.scaley}}' type="range" min="0" max="2" step="0.1"><br>
+        X <input value='{{left.x}}' type="range" min="-150" max="150" step="10"><br>
+        Y <input value='{{left.y}}' type="range" min="-150" max="150" step="10"><br>
+    </td></tr>
+
+    <tr><td>
+        <h2> motor </h2></td><td>
+        scale <input value='{{motor.scale}}' type="range" min="0" max="2" step="0.1"><br>
+        scaleX <input value='{{motor.scalex}}' type="range" min="0" max="2" step="0.1"><br>
+        scaleY <input value='{{motor.scaley}}' type="range" min="0" max="2" step="0.1"><br>
+        X <input value='{{motor.x}}' type="range" min="-150" max="150" step="10"><br>
+        Y <input value='{{motor.y}}' type="range" min="-150" max="150" step="10"><br>
+    </td></tr>
+
+    <tr><td>
+        <h2> payload </h2></td><td>
+        scale <input value='{{payload.scale}}' type="range" min="0" max="2" step="0.1"><br>
+        scaleX <input value='{{payload.scalex}}' type="range" min="0" max="2" step="0.1"><br>
+        scaleY <input value='{{payload.scaley}}' type="range" min="0" max="2" step="0.1"><br>
+        X <input value='{{payload.x}}' type="range" min="-150" max="150" step="10"><br>
+        Y <input value='{{payload.y}}' type="range" min="-150" max="150" step="10"><br>
+    </td></tr>
+
+    <tr><td>
+        <h2> right </h2></td><td>
+        scale <input value='{{right.scale}}' type="range" min="0" max="2" step="0.1"><br>
+        scaleX <input value='{{right.scalex}}' type="range" min="0" max="2" step="0.1"><br>
+        scaleY <input value='{{right.scaley}}' type="range" min="0" max="2" step="0.1"><br>
+        X <input value='{{right.x}}' type="range" min="-150" max="150" step="10"><br>
+        Y <input value='{{right.y}}' type="range" min="-150" max="150" step="10"><br>
+    </td></tr>
+
+    <tr><td>
+        <h2> rotor </h2></td><td>
+        scale <input value='{{rotor.scale}}' type="range" min="0" max="2" step="0.1"><br>
+        scaleX <input value='{{rotor.scalex}}' type="range" min="0" max="2" step="0.1"><br>
+        scaleY <input value='{{rotor.scaley}}' type="range" min="0" max="2" step="0.1"><br>
+        X <input value='{{rotor.x}}' type="range" min="-150" max="150" step="10"><br>
+        Y <input value='{{rotor.y}}' type="range" min="-150" max="150" step="10"><br>
+    </td></tr>
+
+    <tr><td>
+        <h2> strut </h2></td><td>
+        scale <input value='{{strut.scale}}' type="range" min="0" max="2" step="0.1"><br>
+        scaleX <input value='{{strut.scalex}}' type="range" min="0" max="2" step="0.1"><br>
+        scaleY <input value='{{strut.scaley}}' type="range" min="0" max="2" step="0.1"><br>
+        X <input value='{{strut.x}}' type="range" min="-150" max="150" step="10"><br>
+        Y <input value='{{strut.y}}' type="range" min="-150" max="150" step="10"><br>
+    </td></tr>
+
+    <tr><td>
+        <h2> top </h2></td><td>
+        scale <input value='{{top.scale}}' type="range" min="0" max="2" step="0.1"><br>
+        scaleX <input value='{{top.scalex}}' type="range" min="0" max="2" step="0.1"><br>
+        scaleY <input value='{{top.scaley}}' type="range" min="0" max="2" step="0.1"><br>
+        X <input value='{{top.x}}' type="range" min="-150" max="150" step="10"><br>
+        Y <input value='{{top.y}}' type="range" min="-150" max="150" step="10"><br>
+    </td></tr>
+</table>
+<h2> constraints </h2>
+<div class="note">access variables by <tt>r.id.attribute</tt>, e.g.:<br>    <tt>r.wingrect.scaley = 1 - r. wingtaper.scaley</tt></div>
+<textarea id="constraints"></textarea>
+</div>
+  </script>
+  <script src='http://cdn.ractivejs.org/latest/ractive.min.js'></script>
+  <script>
+var r = {
+  bottom: {scalex: 1, scaley: 1, scale: 1, x:0, y:0},
+left: {scalex: 1, scaley: 1, scale: 1, x:0, y:0},
+motor: {scalex: 1, scaley: 1, scale: 1, x:0, y:0},
+payload: {scalex: 1, scaley: 1, scale: 1, x:0, y:0},
+right: {scalex: 1, scaley: 1, scale: 1, x:0, y:0},
+rotor: {scalex: 1, scaley: 1, scale: 1, x:0, y:0},
+strut: {scalex: 1, scaley: 1, scale: 1, x:0, y:0},
+top: {scalex: 1, scaley: 1, scale: 1, x:0, y:0},
+      }
+
+      var constraining = false;
+
+        var ractive = new Ractive({
+          el: 'ractivecontainer',
+          template: '#ractivetemplate',
+          magic: true,
+          data: r,
+        onchange: function () {
+            if (!constraining) {
+                constraining = true;
+                eval(document.getElementById("constraints").value);
+                constraining = false;
+            }
+        }
+        });
+  </script>
+</body>
+</html>
