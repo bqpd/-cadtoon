@@ -4,6 +4,7 @@ import sys
 import xmltodict
 import numpy as np
 from string import Template
+import os.path
 
 args = sys.argv
 if len(args) != 2:
@@ -254,6 +255,15 @@ html_template = Template("""<!doctype html>
         height: 10em;
         font-family: monospace;
     }
+
+    .num {
+        font-family: monospace;
+        width: 40px;
+        float: right;
+        padding-top: 5px;
+        text-align: left;
+        padding-left: 5px;
+    }
   </style>
 </head>
 
@@ -269,7 +279,7 @@ $controls
 </table>
 <h2> constraints </h2>
 <div class="note">access variables by <tt>r.id.attribute</tt>, e.g.:<br>    <tt>r.wingrect.scaley = 1 - r. wingtaper.scaley</tt></div>
-<textarea id="constraints"></textarea>
+<textarea id="constraints">$constraints</textarea>
 </div>
   </script>
   <script src='http://cdn.ractivejs.org/latest/ractive.min.js'></script>
@@ -295,16 +305,17 @@ var r = {
         });
   </script>
 </body>
-</html>""")
+</html>
+""")
 
 controls_template = Template("""
     <tr><td>
         <h2> $id </h2></td><td>
-        scale <input value='{{$id.scale}}' type="range" min="0" max="2" step="0.05"><br>
-        scaleX <input value='{{$id.scalex}}' type="range" min="0" max="2" step="0.05"><br>
-        scaleY <input value='{{$id.scaley}}' type="range" min="0" max="2" step="0.05"><br>
-        X <input value='{{$id.x}}' type="range" min="-150" max="150" step="1"><br>
-        Y <input value='{{$id.y}}' type="range" min="-150" max="150" step="1"><br>
+        scale <input value='{{$id.scale}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*$id.scale)/100}}</div><br>
+        scalex <input value='{{$id.scalex}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*$id.scalex)/100}}</div><br>
+        scaley <input value='{{$id.scaley}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*$id.scaley)/100}}</div><br>
+        x <input value='{{$id.x}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*$id.x)/100}}</div><br>
+        y <input value='{{$id.y}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*$id.y)/100}}</div><br>
     </td></tr>""")
 init_template = Template("$id: {scalex: 1, scaley: 1, scale: 1, x:0, y:0},")
 
@@ -314,7 +325,18 @@ htmlinit = "\n".join([init_template.substitute(id=i) for i in idlist])
 
 svgtxt = svgtxt[svgtxt.index("\n")+1:]
 
-html = html_template.substitute(title=title, svgtxt=svgtxt, controls=htmlcontrols, init=htmlinit)
+if os.path.isfile(title+".constraints"):
+    with open(title+".constraints", 'r') as file:
+        constraints = file.read()
+else:
+    constraints = ""
+
+
+html = html_template.substitute(title=title,
+                                svgtxt=svgtxt,
+                                constraints=constraints,
+                                controls=htmlcontrols,
+                                init=htmlinit)
 
 with open(title+".html", "w") as file:
     file.write(html)

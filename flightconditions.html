@@ -45,6 +45,15 @@
         height: 10em;
         font-family: monospace;
     }
+
+    .num {
+        font-family: monospace;
+        width: 40px;
+        float: right;
+        padding-top: 5px;
+        text-align: left;
+        padding-left: 5px;
+    }
   </style>
 </head>
 
@@ -86,83 +95,83 @@
 
     <tr><td>
         <h2> airfoil </h2></td><td>
-        scale <input value='{{airfoil.scale}}' type="range" min="0" max="2" step="0.05"><br>
-        scaleX <input value='{{airfoil.scalex}}' type="range" min="0" max="2" step="0.05"><br>
-        scaleY <input value='{{airfoil.scaley}}' type="range" min="0" max="2" step="0.05"><br>
-        X <input value='{{airfoil.x}}' type="range" min="-150" max="150" step="1"><br>
-        Y <input value='{{airfoil.y}}' type="range" min="-150" max="150" step="1"><br>
+        scale <input value='{{airfoil.scale}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*airfoil.scale)/100}}</div><br>
+        scalex <input value='{{airfoil.scalex}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*airfoil.scalex)/100}}</div><br>
+        scaley <input value='{{airfoil.scaley}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*airfoil.scaley)/100}}</div><br>
+        x <input value='{{airfoil.x}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*airfoil.x)/100}}</div><br>
+        y <input value='{{airfoil.y}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*airfoil.y)/100}}</div><br>
     </td></tr>
 
     <tr><td>
         <h2> engine1 </h2></td><td>
-        scale <input value='{{engine1.scale}}' type="range" min="0" max="2" step="0.05"><br>
-        scaleX <input value='{{engine1.scalex}}' type="range" min="0" max="2" step="0.05"><br>
-        scaleY <input value='{{engine1.scaley}}' type="range" min="0" max="2" step="0.05"><br>
-        X <input value='{{engine1.x}}' type="range" min="-150" max="150" step="1"><br>
-        Y <input value='{{engine1.y}}' type="range" min="-150" max="150" step="1"><br>
+        scale <input value='{{engine1.scale}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*engine1.scale)/100}}</div><br>
+        scalex <input value='{{engine1.scalex}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*engine1.scalex)/100}}</div><br>
+        scaley <input value='{{engine1.scaley}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*engine1.scaley)/100}}</div><br>
+        x <input value='{{engine1.x}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*engine1.x)/100}}</div><br>
+        y <input value='{{engine1.y}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*engine1.y)/100}}</div><br>
     </td></tr>
 
     <tr><td>
         <h2> engine2 </h2></td><td>
-        scale <input value='{{engine2.scale}}' type="range" min="0" max="2" step="0.05"><br>
-        scaleX <input value='{{engine2.scalex}}' type="range" min="0" max="2" step="0.05"><br>
-        scaleY <input value='{{engine2.scaley}}' type="range" min="0" max="2" step="0.05"><br>
-        X <input value='{{engine2.x}}' type="range" min="-150" max="150" step="1"><br>
-        Y <input value='{{engine2.y}}' type="range" min="-150" max="150" step="1"><br>
+        scale <input value='{{engine2.scale}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*engine2.scale)/100}}</div><br>
+        scalex <input value='{{engine2.scalex}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*engine2.scalex)/100}}</div><br>
+        scaley <input value='{{engine2.scaley}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*engine2.scaley)/100}}</div><br>
+        x <input value='{{engine2.x}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*engine2.x)/100}}</div><br>
+        y <input value='{{engine2.y}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*engine2.y)/100}}</div><br>
     </td></tr>
 
     <tr><td>
         <h2> fuse </h2></td><td>
-        scale <input value='{{fuse.scale}}' type="range" min="0" max="2" step="0.05"><br>
-        scaleX <input value='{{fuse.scalex}}' type="range" min="0" max="2" step="0.05"><br>
-        scaleY <input value='{{fuse.scaley}}' type="range" min="0" max="2" step="0.05"><br>
-        X <input value='{{fuse.x}}' type="range" min="-150" max="150" step="1"><br>
-        Y <input value='{{fuse.y}}' type="range" min="-150" max="150" step="1"><br>
+        scale <input value='{{fuse.scale}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*fuse.scale)/100}}</div><br>
+        scalex <input value='{{fuse.scalex}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*fuse.scalex)/100}}</div><br>
+        scaley <input value='{{fuse.scaley}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*fuse.scaley)/100}}</div><br>
+        x <input value='{{fuse.x}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*fuse.x)/100}}</div><br>
+        y <input value='{{fuse.y}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*fuse.y)/100}}</div><br>
     </td></tr>
 
     <tr><td>
         <h2> plane </h2></td><td>
-        scale <input value='{{plane.scale}}' type="range" min="0" max="2" step="0.05"><br>
-        scaleX <input value='{{plane.scalex}}' type="range" min="0" max="2" step="0.05"><br>
-        scaleY <input value='{{plane.scaley}}' type="range" min="0" max="2" step="0.05"><br>
-        X <input value='{{plane.x}}' type="range" min="-150" max="150" step="1"><br>
-        Y <input value='{{plane.y}}' type="range" min="-150" max="150" step="1"><br>
+        scale <input value='{{plane.scale}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*plane.scale)/100}}</div><br>
+        scalex <input value='{{plane.scalex}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*plane.scalex)/100}}</div><br>
+        scaley <input value='{{plane.scaley}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*plane.scaley)/100}}</div><br>
+        x <input value='{{plane.x}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*plane.x)/100}}</div><br>
+        y <input value='{{plane.y}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*plane.y)/100}}</div><br>
     </td></tr>
 
     <tr><td>
         <h2> shearinner </h2></td><td>
-        scale <input value='{{shearinner.scale}}' type="range" min="0" max="2" step="0.05"><br>
-        scaleX <input value='{{shearinner.scalex}}' type="range" min="0" max="2" step="0.05"><br>
-        scaleY <input value='{{shearinner.scaley}}' type="range" min="0" max="2" step="0.05"><br>
-        X <input value='{{shearinner.x}}' type="range" min="-150" max="150" step="1"><br>
-        Y <input value='{{shearinner.y}}' type="range" min="-150" max="150" step="1"><br>
+        scale <input value='{{shearinner.scale}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*shearinner.scale)/100}}</div><br>
+        scalex <input value='{{shearinner.scalex}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*shearinner.scalex)/100}}</div><br>
+        scaley <input value='{{shearinner.scaley}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*shearinner.scaley)/100}}</div><br>
+        x <input value='{{shearinner.x}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*shearinner.x)/100}}</div><br>
+        y <input value='{{shearinner.y}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*shearinner.y)/100}}</div><br>
     </td></tr>
 
     <tr><td>
         <h2> wing </h2></td><td>
-        scale <input value='{{wing.scale}}' type="range" min="0" max="2" step="0.05"><br>
-        scaleX <input value='{{wing.scalex}}' type="range" min="0" max="2" step="0.05"><br>
-        scaleY <input value='{{wing.scaley}}' type="range" min="0" max="2" step="0.05"><br>
-        X <input value='{{wing.x}}' type="range" min="-150" max="150" step="1"><br>
-        Y <input value='{{wing.y}}' type="range" min="-150" max="150" step="1"><br>
+        scale <input value='{{wing.scale}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*wing.scale)/100}}</div><br>
+        scalex <input value='{{wing.scalex}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*wing.scalex)/100}}</div><br>
+        scaley <input value='{{wing.scaley}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*wing.scaley)/100}}</div><br>
+        x <input value='{{wing.x}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*wing.x)/100}}</div><br>
+        y <input value='{{wing.y}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*wing.y)/100}}</div><br>
     </td></tr>
 
     <tr><td>
         <h2> wingrect </h2></td><td>
-        scale <input value='{{wingrect.scale}}' type="range" min="0" max="2" step="0.05"><br>
-        scaleX <input value='{{wingrect.scalex}}' type="range" min="0" max="2" step="0.05"><br>
-        scaleY <input value='{{wingrect.scaley}}' type="range" min="0" max="2" step="0.05"><br>
-        X <input value='{{wingrect.x}}' type="range" min="-150" max="150" step="1"><br>
-        Y <input value='{{wingrect.y}}' type="range" min="-150" max="150" step="1"><br>
+        scale <input value='{{wingrect.scale}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*wingrect.scale)/100}}</div><br>
+        scalex <input value='{{wingrect.scalex}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*wingrect.scalex)/100}}</div><br>
+        scaley <input value='{{wingrect.scaley}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*wingrect.scaley)/100}}</div><br>
+        x <input value='{{wingrect.x}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*wingrect.x)/100}}</div><br>
+        y <input value='{{wingrect.y}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*wingrect.y)/100}}</div><br>
     </td></tr>
 
     <tr><td>
         <h2> wingtaper </h2></td><td>
-        scale <input value='{{wingtaper.scale}}' type="range" min="0" max="2" step="0.05"><br>
-        scaleX <input value='{{wingtaper.scalex}}' type="range" min="0" max="2" step="0.05"><br>
-        scaleY <input value='{{wingtaper.scaley}}' type="range" min="0" max="2" step="0.05"><br>
-        X <input value='{{wingtaper.x}}' type="range" min="-150" max="150" step="1"><br>
-        Y <input value='{{wingtaper.y}}' type="range" min="-150" max="150" step="1"><br>
+        scale <input value='{{wingtaper.scale}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*wingtaper.scale)/100}}</div><br>
+        scalex <input value='{{wingtaper.scalex}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*wingtaper.scalex)/100}}</div><br>
+        scaley <input value='{{wingtaper.scaley}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*wingtaper.scaley)/100}}</div><br>
+        x <input value='{{wingtaper.x}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*wingtaper.x)/100}}</div><br>
+        y <input value='{{wingtaper.y}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*wingtaper.y)/100}}</div><br>
     </td></tr>
 </table>
 <h2> constraints </h2>
@@ -174,7 +183,8 @@ r.wingtaper.y = 5*wty
 r.wingrect.scaley = 1 - wty
 r.wingrect.y = -6 + 5*wty
 r.engine1.y = 10*wty
-r.engine2.y = 10*wty</textarea>
+r.engine2.y = 10*wty
+</textarea>
 </div>
   </script>
   <script src='http://cdn.ractivejs.org/latest/ractive.min.js'></script>
