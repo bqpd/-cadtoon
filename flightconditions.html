@@ -167,17 +167,14 @@
 </table>
 <h2> constraints </h2>
 <div class="note">access variables by <tt>r.id.attribute</tt>, e.g.:<br>    <tt>r.wingrect.scaley = 1 - r. wingtaper.scaley</tt></div>
-<textarea id="constraints">var wty = r. wingtaper.scaley
+<textarea id="constraints">var wty = r.wingtaper.scaley
 console.log(wty);
 
 r.wingtaper.y = 5*wty
-
 r.wingrect.scaley = 1 - wty
 r.wingrect.y = -6 + 5*wty
-
 r.engine1.y = 10*wty
-r.engine2.y = 10*wty
-</textarea>
+r.engine2.y = 10*wty</textarea>
 </div>
   </script>
   <script src='http://cdn.ractivejs.org/latest/ractive.min.js'></script>
