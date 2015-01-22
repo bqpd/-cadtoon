@@ -1,0 +1,4 @@
+r.top.y = 75*(1-r.strut.scale)
+r.bottom.y = -75*(1-r.strut.scale)
+r.left.x = 75*(1-r.strut.scale)
+r.right.x = -75*(1-r.strut.scale)

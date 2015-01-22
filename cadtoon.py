@@ -300,11 +300,11 @@ var r = {
 controls_template = Template("""
     <tr><td>
         <h2> $id </h2></td><td>
-        scale <input value='{{$id.scale}}' type="range" min="0" max="2" step="0.1"><br>
-        scaleX <input value='{{$id.scalex}}' type="range" min="0" max="2" step="0.1"><br>
-        scaleY <input value='{{$id.scaley}}' type="range" min="0" max="2" step="0.1"><br>
-        X <input value='{{$id.x}}' type="range" min="-150" max="150" step="10"><br>
-        Y <input value='{{$id.y}}' type="range" min="-150" max="150" step="10"><br>
+        scale <input value='{{$id.scale}}' type="range" min="0" max="2" step="0.05"><br>
+        scaleX <input value='{{$id.scalex}}' type="range" min="0" max="2" step="0.05"><br>
+        scaleY <input value='{{$id.scaley}}' type="range" min="0" max="2" step="0.05"><br>
+        X <input value='{{$id.x}}' type="range" min="-150" max="150" step="1"><br>
+        Y <input value='{{$id.y}}' type="range" min="-150" max="150" step="1"><br>
     </td></tr>""")
 init_template = Template("$id: {scalex: 1, scaley: 1, scale: 1, x:0, y:0},")
 
