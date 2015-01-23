@@ -1,67 +1,5 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset='utf-8'>
-  <title> quadrotor | Ractive test</title>
-  <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-  <style>
-    body {
-        font-family: "Roboto";
-        background: white;
-    }
-
-    td {
-        padding: 1em;
-        text-align: right;
-    }
-
-    .left {
-        position: fixed;
-        left: 40px;
-        width: 480px;
-        margin: 0 auto;
-    }
-
-    .right {
-        position: absolute;
-        left: 560px;
-        top: 60px;
-    }
-
-    h1 {
-        font-size: 3em;
-    }
-
-    h2 {
-        font-size: 2em;
-    }
-
-    .note {
-        margin-top: -1.5em;
-    }
-
-    #constraints {
-        width: 100%;
-        height: 30em;
-        font-family: monospace;
-    }
-
-    .num {
-        font-family: monospace;
-        width: 40px;
-        float: right;
-        padding-top: 5px;
-        text-align: left;
-        padding-left: 5px;
-    }
-  </style>
-</head>
-
-<body>
-  <div id='ractivecontainer'></div>
+<div id='ractivecontainer' style="float:right; height: 0;"></div>
 <script id='ractivetemplate' type='text/ractive'>
-  <div class="left">
-  <h1>  quadrotor </h1><br><br><br>
 <svg width="400" height="400" version="1.1">
 	<g transform="scale(2.00)">
 		<g transform="translate(-158.2896,-548.99271)">
@@ -119,93 +57,11 @@
 		</g>
 	</g>
 </svg>
-</div><div class="right">
-<table id="controls" style="margin: 0 auto;">
-
-    <tr><td>
-        <h2> bottom </h2></td><td>
-        scale <input value='{{bottom.scale}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*bottom.scale)/100}}</div><br>
-        scalex <input value='{{bottom.scalex}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*bottom.scalex)/100}}</div><br>
-        scaley <input value='{{bottom.scaley}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*bottom.scaley)/100}}</div><br>
-        x <input value='{{bottom.x}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*bottom.x)/100}}</div><br>
-        y <input value='{{bottom.y}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*bottom.y)/100}}</div><br>
-    </td></tr>
-
-    <tr><td>
-        <h2> left </h2></td><td>
-        scale <input value='{{left.scale}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*left.scale)/100}}</div><br>
-        scalex <input value='{{left.scalex}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*left.scalex)/100}}</div><br>
-        scaley <input value='{{left.scaley}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*left.scaley)/100}}</div><br>
-        x <input value='{{left.x}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*left.x)/100}}</div><br>
-        y <input value='{{left.y}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*left.y)/100}}</div><br>
-    </td></tr>
-
-    <tr><td>
-        <h2> motor </h2></td><td>
-        scale <input value='{{motor.scale}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*motor.scale)/100}}</div><br>
-        scalex <input value='{{motor.scalex}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*motor.scalex)/100}}</div><br>
-        scaley <input value='{{motor.scaley}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*motor.scaley)/100}}</div><br>
-        x <input value='{{motor.x}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*motor.x)/100}}</div><br>
-        y <input value='{{motor.y}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*motor.y)/100}}</div><br>
-    </td></tr>
-
-    <tr><td>
-        <h2> payload </h2></td><td>
-        scale <input value='{{payload.scale}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*payload.scale)/100}}</div><br>
-        scalex <input value='{{payload.scalex}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*payload.scalex)/100}}</div><br>
-        scaley <input value='{{payload.scaley}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*payload.scaley)/100}}</div><br>
-        x <input value='{{payload.x}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*payload.x)/100}}</div><br>
-        y <input value='{{payload.y}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*payload.y)/100}}</div><br>
-    </td></tr>
-
-    <tr><td>
-        <h2> right </h2></td><td>
-        scale <input value='{{right.scale}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*right.scale)/100}}</div><br>
-        scalex <input value='{{right.scalex}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*right.scalex)/100}}</div><br>
-        scaley <input value='{{right.scaley}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*right.scaley)/100}}</div><br>
-        x <input value='{{right.x}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*right.x)/100}}</div><br>
-        y <input value='{{right.y}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*right.y)/100}}</div><br>
-    </td></tr>
-
-    <tr><td>
-        <h2> rotor </h2></td><td>
-        scale <input value='{{rotor.scale}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*rotor.scale)/100}}</div><br>
-        scalex <input value='{{rotor.scalex}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*rotor.scalex)/100}}</div><br>
-        scaley <input value='{{rotor.scaley}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*rotor.scaley)/100}}</div><br>
-        x <input value='{{rotor.x}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*rotor.x)/100}}</div><br>
-        y <input value='{{rotor.y}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*rotor.y)/100}}</div><br>
-    </td></tr>
-
-    <tr><td>
-        <h2> strut </h2></td><td>
-        scale <input value='{{strut.scale}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*strut.scale)/100}}</div><br>
-        scalex <input value='{{strut.scalex}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*strut.scalex)/100}}</div><br>
-        scaley <input value='{{strut.scaley}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*strut.scaley)/100}}</div><br>
-        x <input value='{{strut.x}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*strut.x)/100}}</div><br>
-        y <input value='{{strut.y}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*strut.y)/100}}</div><br>
-    </td></tr>
-
-    <tr><td>
-        <h2> top </h2></td><td>
-        scale <input value='{{top.scale}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*top.scale)/100}}</div><br>
-        scalex <input value='{{top.scalex}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*top.scalex)/100}}</div><br>
-        scaley <input value='{{top.scaley}}' type="range" min="0" max="2" step="0.05"><div class="num">{{Math.round(100*top.scaley)/100}}</div><br>
-        x <input value='{{top.x}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*top.x)/100}}</div><br>
-        y <input value='{{top.y}}' type="range" min="-150" max="150" step="1"><div class="num">{{Math.round(100*top.y)/100}}</div><br>
-    </td></tr>
-</table>
-<h2> constraints </h2>
-<div class="note">access variables by <tt>r.id.attribute</tt>, e.g.:<br>    <tt>r.wingrect.scaley = 1 - r. wingtaper.scaley</tt></div>
-<textarea id="constraints" onchange="updateCbox();">r.top.y = 75*(1-r.strut.scale)
-r.bottom.y = -75*(1-r.strut.scale)
-r.left.x = 75*(1-r.strut.scale)
-r.right.x = -75*(1-r.strut.scale)
-</textarea>
-</div>
-  </script>
-  <script src='http://cdn.ractivejs.org/latest/ractive.min.js'></script>
-  <script>
-var r = {
+<div style="text-align: right; font-weight: 700; font-size: 2em;">{{infeasibilitywarning}}</div>
+    </script>
+    <script>
+    var r = {
+infeasibilitywarning: "",
 bottom: {scalex: 1, scaley: 1, scale: 1, x:0, y:0},
 left: {scalex: 1, scaley: 1, scale: 1, x:0, y:0},
 motor: {scalex: 1, scaley: 1, scale: 1, x:0, y:0},
@@ -215,34 +71,10 @@ rotor: {scalex: 1, scaley: 1, scale: 1, x:0, y:0},
 strut: {scalex: 1, scaley: 1, scale: 1, x:0, y:0},
 top: {scalex: 1, scaley: 1, scale: 1, x:0, y:0},
       }
-
-var cbox = null
-
-var updateCbox = function () {
-    if (!constraining) {
-        constraining = true;
-        try {
-            eval(cbox.value)
-            cbox.style.backgroundColor = "#fff"
-        }
-        catch(e) { cbox.style.backgroundColor = "#fdd" }
-        constraining = false;
-    }
-}
-
-      var constraining = false;
-
         var ractive = new Ractive({
           el: 'ractivecontainer',
           template: '#ractivetemplate',
           magic: true,
-          data: r,
-        onchange: updateCbox
+          data: r
         });
-
-    var cbox = document.getElementById("constraints")
-
-    updateCbox()
-  </script>
-</body>
-</html>
+</script>

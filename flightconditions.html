@@ -42,7 +42,7 @@
 
     #constraints {
         width: 100%;
-        height: 10em;
+        height: 30em;
         font-family: monospace;
     }
 
@@ -176,7 +176,7 @@
 </table>
 <h2> constraints </h2>
 <div class="note">access variables by <tt>r.id.attribute</tt>, e.g.:<br>    <tt>r.wingrect.scaley = 1 - r. wingtaper.scaley</tt></div>
-<textarea id="constraints">var wty = r.wingtaper.scaley
+<textarea id="constraints" onchange="updateCbox();">var wty = r.wingtaper.scaley
 console.log(wty);
 
 r.wingtaper.y = 5*wty
@@ -190,7 +190,7 @@ r.engine2.y = 10*wty
   <script src='http://cdn.ractivejs.org/latest/ractive.min.js'></script>
   <script>
 var r = {
-  airfoil: {scalex: 1, scaley: 1, scale: 1, x:0, y:0},
+airfoil: {scalex: 1, scaley: 1, scale: 1, x:0, y:0},
 engine1: {scalex: 1, scaley: 1, scale: 1, x:0, y:0},
 engine2: {scalex: 1, scaley: 1, scale: 1, x:0, y:0},
 fuse: {scalex: 1, scaley: 1, scale: 1, x:0, y:0},
@@ -201,6 +201,20 @@ wingrect: {scalex: 1, scaley: 1, scale: 1, x:0, y:0},
 wingtaper: {scalex: 1, scaley: 1, scale: 1, x:0, y:0},
       }
 
+var cbox = null
+
+var updateCbox = function () {
+    if (!constraining) {
+        constraining = true;
+        try {
+            eval(cbox.value)
+            cbox.style.backgroundColor = "#fff"
+        }
+        catch(e) { cbox.style.backgroundColor = "#fdd" }
+        constraining = false;
+    }
+}
+
       var constraining = false;
 
         var ractive = new Ractive({
@@ -208,14 +222,12 @@ wingtaper: {scalex: 1, scaley: 1, scale: 1, x:0, y:0},
           template: '#ractivetemplate',
           magic: true,
           data: r,
-        onchange: function () {
-            if (!constraining) {
-                constraining = true;
-                eval(document.getElementById("constraints").value);
-                constraining = false;
-            }
-        }
+        onchange: updateCbox
         });
+
+    var cbox = document.getElementById("constraints")
+
+    updateCbox()
   </script>
 </body>
 </html>

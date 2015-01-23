@@ -127,7 +127,7 @@ def recurse_down(group, bounds = {"x": [None, None], "y": [None, None]}, orig=np
             lastcmd = None
             lastcmdidx = None
             for i, el in enumerate(d):
-                if el in "mCcalz":
+                if el in "mMCcaAlz":
                     lastcmd = el
                     lastcmdidx = i
                 elif lastcmd == "C":
@@ -172,7 +172,10 @@ def recurse_down(group, bounds = {"x": [None, None], "y": [None, None]}, orig=np
                         del group["path"]
                     else:
                         group["path"].remove(path)
-                path["@transform"] = scaling_template.substitute(cl=path_new_class, centrex=(path_bounds["x"][1] + path_bounds["x"][0])/2.0, centrey=(path_bounds["y"][1] + path_bounds["y"][0])/2.0)
+                if path_bounds["x"][0] is None:
+                    path["@transform"] = scaling_template.substitute(cl=path_new_class, centrex=0, centrey=0)
+                else:
+                    path["@transform"] = scaling_template.substitute(cl=path_new_class, centrex=(path_bounds["x"][1] + path_bounds["x"][0])/2.0, centrey=(path_bounds["y"][1] + path_bounds["y"][0])/2.0)
                 path["@class"] = path_new_class
                 if not path_new_class in idlist:
                     idlist.append(path_new_class)
@@ -185,7 +188,10 @@ def recurse_down(group, bounds = {"x": [None, None], "y": [None, None]}, orig=np
         for g in gs:
             bounds = recurse_down(g, bounds, orig)
     if group_new_class:
-        transform = scaling_template.substitute(cl=group_new_class, centrex=(bounds["x"][1] + bounds["x"][0])/2.0, centrey=(bounds["y"][1] + bounds["y"][0])/2.0)
+        if bounds["x"][0] is None:
+            transform = scaling_template.substitute(cl=path_new_class, centrex=0, centrey=0)
+        else:
+            transform = scaling_template.substitute(cl=group_new_class, centrex=(bounds["x"][1] + bounds["x"][0])/2.0, centrey=(bounds["y"][1] + bounds["y"][0])/2.0)
         groupWrap(group_new_class, group, transform)
         if not group_new_class in idlist:
             idlist.append(group_new_class)
@@ -252,7 +258,7 @@ html_template = Template("""<!doctype html>
 
     #constraints {
         width: 100%;
-        height: 10em;
+        height: 30em;
         font-family: monospace;
     }
 
@@ -279,14 +285,28 @@ $controls
 </table>
 <h2> constraints </h2>
 <div class="note">access variables by <tt>r.id.attribute</tt>, e.g.:<br>    <tt>r.wingrect.scaley = 1 - r. wingtaper.scaley</tt></div>
-<textarea id="constraints">$constraints</textarea>
+<textarea id="constraints" onchange="updateCbox();">$constraints</textarea>
 </div>
   </script>
   <script src='http://cdn.ractivejs.org/latest/ractive.min.js'></script>
   <script>
 var r = {
-  $init
+$init
       }
+
+var cbox = null
+
+var updateCbox = function () {
+    if (!constraining) {
+        constraining = true;
+        try {
+            eval(cbox.value)
+            cbox.style.backgroundColor = "#fff"
+        }
+        catch(e) { cbox.style.backgroundColor = "#fdd" }
+        constraining = false;
+    }
+}
 
       var constraining = false;
 
@@ -295,18 +315,34 @@ var r = {
           template: '#ractivetemplate',
           magic: true,
           data: r,
-        onchange: function () {
-            if (!constraining) {
-                constraining = true;
-                eval(document.getElementById("constraints").value);
-                constraining = false;
-            }
-        }
+        onchange: updateCbox
         });
+
+    var cbox = document.getElementById("constraints")
+
+    updateCbox()
   </script>
 </body>
 </html>
 """)
+
+gpkit_template = Template("""<div id='ractivecontainer' style="float:right; height: 0;"></div>
+<script id='ractivetemplate' type='text/ractive'>
+$svgtxt
+<div style="text-align: right; font-weight: 700; font-size: 2em;">{{infeasibilitywarning}}</div>
+    </script>
+    <script>
+    var r = {
+infeasibilitywarning: "",
+$init
+      }
+        var ractive = new Ractive({
+          el: 'ractivecontainer',
+          template: '#ractivetemplate',
+          magic: true,
+          data: r
+        });
+</script>""")
 
 controls_template = Template("""
     <tr><td>
@@ -338,5 +374,10 @@ html = html_template.substitute(title=title,
                                 controls=htmlcontrols,
                                 init=htmlinit)
 
+gpkit_html = gpkit_template.substitute(svgtxt=svgtxt, init=htmlinit)
+
 with open(title+".html", "w") as file:
     file.write(html)
+
+with open(title+".gpkit", "w") as file:
+    file.write(gpkit_html)

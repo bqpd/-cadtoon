@@ -29,3 +29,9 @@ cadtoons is a library that turns labeled [SVG](https://en.wikipedia.org/wiki/Sca
 ## cadtoons Dependencies
 
 cadtoons uses the lovely [Ractive.js](ractivejs.org) to animate SVGs.
+
+## TODO
+
+  * **sandbox**
+    * there should be a "compile" button/warning
+    * there should be a "reset" button
