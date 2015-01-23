@@ -331,6 +331,7 @@ gpkit_template = Template("""<div id='ractivecontainer' style="float:right; heig
 $svgtxt
 <div style="text-align: right; font-weight: 700; font-size: 2em;">{{infeasibilitywarning}}</div>
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
     var r = {
 infeasibilitywarning: "",
