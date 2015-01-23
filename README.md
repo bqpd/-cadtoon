@@ -14,7 +14,9 @@ cadtoons is a library that turns labeled [SVG](https://en.wikipedia.org/wiki/Sca
     * e.g. `./cadtoon.py example.svg`
       * If you run into any errors, please [add an issue](https://github.com/bqpd/cadtoons/issues/new) to this repository!
       * Known bugs:
-        1. `cadtoon.py` deletes absolute arcs ("A" commands)
+        0. cadtoon doesn't work with objects (circles, rectangles, etc.)
+          * Solution: convert them to paths (Ctrl-Shift-C or the Path menu)
+        1. cadtoon deletes absolute arcs ("A" commands)
           * Solution: delete the absolute arcs if possible, or use the path editor to convert them to relative arcs.
         2. Translation on named groups that have been rotated follows the axes of their rotation, not x and y
           * Sometimes, this is a boon, allowing easy translation at other angles. If you want x/y motion, though, you'll need to remove that rotation...
