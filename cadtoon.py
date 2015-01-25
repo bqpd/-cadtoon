@@ -326,23 +326,24 @@ var updateCbox = function () {
 </html>
 """)
 
-gpkit_template = Template("""<div id='ractivecontainer' style="float:right; height: 0;"></div>
+gpkit_template = Template("""<div id='ractivecontainer'></div>
 <script id='ractivetemplate' type='text/ractive'>
 $svgtxt
 <div style="text-align: right; font-weight: 700; font-size: 2em;">{{infeasibilitywarning}}</div>
     </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
     <script>
     var r = {
 infeasibilitywarning: "",
 $init
       }
-        var ractive = new Ractive({
+$dollar.getScript('http://cdn.ractivejs.org/latest/ractive.min.js', function () {
+var ractive = new Ractive({
           el: 'ractivecontainer',
           template: '#ractivetemplate',
           magic: true,
           data: r
-        });
+        }) })
 </script>""")
 
 controls_template = Template("""
@@ -375,7 +376,7 @@ html = html_template.substitute(title=title,
                                 controls=htmlcontrols,
                                 init=htmlinit)
 
-gpkit_html = gpkit_template.substitute(svgtxt=svgtxt, init=htmlinit)
+gpkit_html = gpkit_template.substitute(svgtxt=svgtxt, init=htmlinit, dollar="$")
 
 with open(title+".html", "w") as file:
     file.write(html)
