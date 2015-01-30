@@ -1,8 +1,8 @@
-# cadtoons
+# cadtoon
 
 cadtoons is a library that turns labeled [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) drawings into something that can be reshaped according to changing parameters. Though the library is somewhat useful for simple 2D manufacturing, its purpose is to make something like a [Chernoff face](https://en.wikipedia.org/wiki/Chernoff_face) for visualizing many-variable optimizations of engineering designs.
 
-**Example sandbox pages: [Airplane](http://bqpd.github.io/cadtoon/flightconditions.html) |  [Quadrotor](http://bqpd.github.io/cadtoon/quadrotor.html)**
+**Example sandbox pages: [Airplane](http://bqpd.github.io/cadtoon/examples/flightconditions.html) |  [Quadrotor](http://bqpd.github.io/cadtoon/examples/quadrotor.html)**
 
 ## How to use cadtoons
 
