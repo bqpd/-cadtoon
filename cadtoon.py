@@ -204,8 +204,8 @@ with open(title+".svg", 'r') as file:
 svg = doc['svg']
 w, h = map(float, [svg["@width"], svg["@height"]])
 topg = {"g": svg["g"].copy()}
-topg["@transform"] = "scale(%.2f)" % max(400.0/w, 400.0/h)
-svg["@width"], svg["@height"] = "400", "400"
+topg["@transform"] = "scale(%.2f)" % min(300.0/w, 300.0/h)
+svg["@width"], svg["@height"] = "300", "300"
 svg["g"] = topg
 recurse_down(svg)
 svgtxt = xmltodict.unparse(doc, pretty=True)
@@ -218,7 +218,7 @@ html_template = Template("""<!doctype html>
 <html>
 <head>
   <meta charset='utf-8'>
-  <title> $title | Ractive test</title>
+  <title> $title | CADtoon</title>
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
   <style>
     body {
@@ -284,13 +284,13 @@ $svgtxt
 $controls
 </table>
 <h2> constraints </h2>
-<div class="note">access variables by <tt>r.id.attribute</tt>, e.g.:<br>    <tt>r.wingrect.scaley = 1 - r. wingtaper.scaley</tt></div>
+<div class="note">access variables by <tt>$title.id.attribute</tt>, e.g.:<br>    <tt>fuel.wingrect.scaley = 1 - fuel.wingtaper.scaley</tt></div>
 <textarea id="constraints" onchange="updateCbox();">$constraints</textarea>
 </div>
   </script>
   <script src='http://cdn.ractivejs.org/latest/ractive.min.js'></script>
   <script>
-var r = {
+var $title = {
 $init
       }
 
@@ -314,7 +314,7 @@ var updateCbox = function () {
           el: 'ractivecontainer',
           template: '#ractivetemplate',
           magic: true,
-          data: r,
+          data: $title,
         onchange: updateCbox
         });
 
@@ -333,7 +333,7 @@ $svgtxt
     </script>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
     <script>
-    var r = {
+    var $title = {
 infeasibilitywarning: "",
 $init
       }
@@ -342,7 +342,7 @@ var ractive = new Ractive({
           el: 'ractivecontainer',
           template: '#ractivetemplate',
           magic: true,
-          data: r
+          data: $title
         }) })
 </script>""")
 
@@ -376,7 +376,7 @@ html = html_template.substitute(title=title,
                                 controls=htmlcontrols,
                                 init=htmlinit)
 
-gpkit_html = gpkit_template.substitute(svgtxt=svgtxt, init=htmlinit, dollar="$")
+gpkit_html = gpkit_template.substitute(title=title, svgtxt=svgtxt, init=htmlinit, dollar="$")
 
 with open(title+".html", "w") as file:
     file.write(html)
