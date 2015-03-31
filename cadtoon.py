@@ -288,7 +288,7 @@ $controls
 <textarea id="constraints" onchange="updateCbox();">$constraints</textarea>
 </div>
   </script>
-  <script src='http://cdn.ractivejs.org/latest/ractive.min.js'></script>
+  <script src='http://cdn.ractivejs.org/0.6.1/ractive.min.js'></script>
   <script>
 var $title = {
 $init
@@ -337,7 +337,7 @@ $svgtxt
 infeasibilitywarning: "",
 $init
       }
-$dollar.getScript('http://cdn.ractivejs.org/latest/ractive.min.js', function () {
+$dollar.getScript('http://cdn.ractivejs.org/0.6.1/ractive.min.js', function () {
 var ractive = new Ractive({
           el: 'ractivecontainer',
           template: '#ractivetemplate',
